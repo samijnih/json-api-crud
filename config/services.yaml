@@ -25,3 +25,10 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+
+    Ramsey\Uuid\UuidFactory: ~
+    Webmozart\Json\JsonDecoder: ~
+    Ramsey\Uuid\UuidFactoryInterface: '@Ramsey\Uuid\UuidFactory'
+
+    App\Entity\User\Repository\UserRepository: '@App\Repository\DoctrineUserRepository'
