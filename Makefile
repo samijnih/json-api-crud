@@ -27,5 +27,8 @@ log-test:
 start-test:
 	$(DT) up --detach --remove-orphans
 
+test: start-test
+	bin/phpunit
+
 stop-test:
 	$(DT) rm -s -f -v
