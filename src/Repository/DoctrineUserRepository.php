@@ -49,4 +49,10 @@ class DoctrineUserRepository extends ServiceEntityRepository implements UserRepo
     {
         $this->getEntityManager()->flush();
     }
+
+    public function delete(UuidInterface $id): void
+    {
+        $this->getEntityManager()->remove($this->findOne($id));
+        $this->getEntityManager()->flush();
+    }
 }
