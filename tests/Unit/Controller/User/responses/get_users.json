@@ -1,0 +1,20 @@
+{
+    "data": [
+        {
+            "type": "users",
+            "id": "%id%",
+            "attributes": {
+                "first_name": "%first_name%",
+                "last_name": "%last_name%",
+                "created_at": "%created_at%",
+                "updated_at": null
+            }
+        }
+    ],
+    "links": {
+        "self": "/users"
+    },
+    "jsonapi": {
+        "version": "1.0"
+    }
+}

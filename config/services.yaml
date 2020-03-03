@@ -33,6 +33,7 @@ services:
     Ramsey\Uuid\UuidFactoryInterface: '@Ramsey\Uuid\UuidFactory'
 
     App\User\GetUser: '@App\ReadModelRepository\DoctrineUserReadModelRepository'
+    App\User\GetUsers: '@App\ReadModelRepository\DoctrineUserReadModelRepository'
     App\Entity\User\Repository\UserRepository:
         alias: App\Repository\DoctrineUserRepository
         public: true
