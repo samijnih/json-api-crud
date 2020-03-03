@@ -10,9 +10,10 @@ use App\Entity\User\VO\Identity;
 use App\Service\Clock;
 use App\User\EditUser;
 use App\User\RegisterUser;
+use App\User\RemoveUser;
 use Ramsey\Uuid\Uuid;
 
-final class UserFacade implements RegisterUser, EditUser
+final class UserFacade implements RegisterUser, EditUser, RemoveUser
 {
     private UserRepository $entityRepository;
     private Clock $mutableClock;
@@ -46,5 +47,10 @@ final class UserFacade implements RegisterUser, EditUser
         $user->changeIdentity(new Identity($firstName, $lastName), $this->mutableClock);
 
         $this->entityRepository->update($user);
+    }
+
+    public function remove(string $id): void
+    {
+        $this->entityRepository->delete(Uuid::fromString($id));
     }
 }
