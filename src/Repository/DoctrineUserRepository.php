@@ -11,6 +11,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Ramsey\Uuid\UuidFactoryInterface;
 use Ramsey\Uuid\UuidInterface;
+use RuntimeException;
 
 class DoctrineUserRepository extends ServiceEntityRepository implements UserRepository
 {
@@ -31,5 +32,21 @@ class DoctrineUserRepository extends ServiceEntityRepository implements UserRepo
     public function create(User $user): void
     {
         $this->getEntityManager()->transactional(fn (EntityManagerInterface $em) => $em->persist($user));
+    }
+
+    public function findOne(UuidInterface $id): User
+    {
+        $user = $this->findOneBy(['id' => $id->toString()]);
+
+        if (null === $user) {
+            throw new RuntimeException("User $id not found.");
+        }
+
+        return $user;
+    }
+
+    public function update(User $user): void
+    {
+        $this->getEntityManager()->flush();
     }
 }

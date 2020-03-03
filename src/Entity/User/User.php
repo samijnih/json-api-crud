@@ -38,4 +38,11 @@ class User
     ): self {
         return new self($id, $identity, $clock->now(), null);
     }
+
+    public function changeIdentity(Identity $newIdentity, Clock $clock): void
+    {
+        $this->firstName = $newIdentity->firstName();
+        $this->lastName = $newIdentity->lastName();
+        $this->updatedAt = $clock->now();
+    }
 }

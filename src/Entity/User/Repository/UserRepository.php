@@ -11,4 +11,6 @@ interface UserRepository
 {
     public function generateId(): UuidInterface;
     public function create(User $user): void;
+    public function findOne(UuidInterface $id): User;
+    public function update(User $user): void;
 }

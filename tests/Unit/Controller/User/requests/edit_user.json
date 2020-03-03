@@ -1,0 +1,10 @@
+{
+    "data": {
+        "type": "users",
+        "id": "%id%",
+        "attributes": {
+            "first_name": "Jnih",
+            "last_name": "Sami"
+        }
+    }
+}
