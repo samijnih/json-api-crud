@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Controller\User;
 
-use App\Facade\UserFacade;
 use App\User\RemoveUser;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,7 +13,7 @@ final class RemoveUserAction
 {
     private RemoveUser $removeUser;
 
-    public function __construct(UserFacade $userFacade)
+    public function __construct(RemoveUser $userFacade)
     {
         $this->removeUser = $userFacade;
     }

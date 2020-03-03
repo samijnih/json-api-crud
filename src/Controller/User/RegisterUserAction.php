@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Controller\User;
 
 use App\Controller\JsonApi\JsonApiValidator;
-use App\Facade\UserFacade;
 use App\User\RegisterUser;
 use Laminas\Code\Exception\RuntimeException;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -20,7 +19,7 @@ final class RegisterUserAction
     private string $schema = __DIR__.'/schema/register_user_action.json';
 
     public function __construct(
-        UserFacade $userFacade,
+        RegisterUser $userFacade,
         JsonApiValidator $validator
     ) {
         $this->registerUser = $userFacade;
