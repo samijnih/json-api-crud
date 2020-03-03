@@ -30,7 +30,8 @@ CREATE TABLE public."user" (
 SQL;
 
         $this->addSql($sql);
-
+        $this->addSql('COMMENT ON COLUMN public."user".created_at IS \'(DC2Type:datetimetz_immutable)\'');
+        $this->addSql('COMMENT ON COLUMN public."user".updated_at IS \'(DC2Type:datetimetz)\'');
     }
 
     public function down(Schema $schema) : void

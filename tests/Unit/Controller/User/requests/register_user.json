@@ -1,0 +1,9 @@
+{
+    "data": {
+        "type": "users",
+        "attributes": {
+            "first_name": "Sami",
+            "last_name": "Jnih"
+        }
+    }
+}
